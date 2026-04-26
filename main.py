@@ -1,8 +1,9 @@
+import os
 import telebot
 from openai import OpenAI
 
-bot = telebot.TeleBot("TELEGRAM_TOKEN")
-client = OpenAI(api_key="OPENAI_API_KEY")
+bot = telebot.TeleBot(os.getenv("TELEGRAM_TOKEN"))
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 @bot.message_handler(func=lambda message: True)
 def reply(message):
